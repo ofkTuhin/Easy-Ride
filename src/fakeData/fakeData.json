@@ -1,0 +1,17 @@
+[{
+    "id": 1,
+    "name": "bike",
+    "img": "https://static.autox.com/uploads/bikes/2017/05/1490867964-hero-hf-deluxe.jpg"
+  }, {
+    "id": 2,
+    "name": "car",
+    "img": "https://upload.wikimedia.org/wikipedia/commons/4/49/2013-2016_Toyota_Corolla_%28ZRE172R%29_SX_sedan_%282018-09-17%29_01.jpg"
+  }, {
+    "id": 3,
+    "name": "bus",
+    "img": "https://www.sustainable-bus.com/wp-content/uploads/2019/12/scania-bus4.jpg"
+  }, {
+    "id": 4,
+    "name": "plane",
+    "img": "http://cdn.cnn.com/cnnnext/dam/assets/181030130218-easyjet-wright-electric.jpg"
+  }]
