@@ -11,7 +11,7 @@ const FontPage = (props) => {
             <Link to="/details">
                   <div className="Item">
         <h3>name:{name}</h3>
-        <img src={img} img="car"></img>
+        <img src={img} alt="car"></img>
     </div></Link>
      </div>
         

@@ -45,6 +45,7 @@ const SignUp = () => {
     .then((result) => {
       /** @type {firebase.auth.OAuthCredential} */
       var credential = result.credential;
+      console.log(credential)
   
      
   
