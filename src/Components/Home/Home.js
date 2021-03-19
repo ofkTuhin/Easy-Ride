@@ -2,17 +2,30 @@ import  { useEffect, useState } from 'react';
 import  fakeData from '../../fakeData/fakeData.json'
 import FontPage from '../FontPage/FontPage';
 
-const Home = () => {
-   const [car, setCar]= useState(fakeData)
-//    useEffect(() =>{
+import './home.css'
 
-//    },[])
+const Home = () => {
+   const [car, setCar]= useState([])
+   useEffect(() =>{
+
+   setCar(fakeData)
+
+   },[car])
    
     return (
-        <div>
+        <div className="home-bg">
+             
+            
+            <div className="container ">
+            <div className="row">
+           
             {
                 car.map(data =><FontPage car={data}></FontPage>)
             }
+        
+            </div>
+        </div>
+
         </div>
     );
 };
