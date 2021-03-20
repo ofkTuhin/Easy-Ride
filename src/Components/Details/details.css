@@ -1,0 +1,85 @@
+.place{
+    text-align: left;
+    height: 120px;
+    width: 300px;
+    background-color: aqua;
+    margin: auto;
+    box-sizing: border-box;
+    padding: 0px 10px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+.dot{
+    height: 10px;
+    width: 10px;
+    border-radius:50%;
+    
+    -webkit-border-radius:50%;
+   
+    -moz-border-radius:50%;
+ 
+    -ms-border-radius:50%;
+    
+    -o-border-radius:50%;
+    background-color: antiquewhite;
+    
+}
+.line{
+    height: 50px;
+    width: 3px;
+    background-color: antiquewhite;
+    margin-left: 4px;
+}
+.rideInfo{
+    display: flex;
+    height: 80px;
+    background-color: white;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    margin-top: 15px;
+}
+.info{
+    width: 20%;
+    height: 70px;
+    text-align: left;
+    margin-left: 10px;
+    margin-top: 15px;
+}
+
+.rideInfo p{
+    margin-top: 15px;
+    
+}
+.info img{
+    width: 100%;
+    height: 50px;
+}
+.payment{
+    width: 30%;
+    margin-top: 15px;
+}
+.car{
+    width: 300px;
+    margin:20px auto;
+}
+.placeDesc{
+    background-color: rgb(176, 176, 196);
+    margin-top: 30px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+.place p{
+    margin-bottom: 0px;
+}
+.map{
+    margin-top: 30px;
+}

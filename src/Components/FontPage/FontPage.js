@@ -10,7 +10,7 @@ const FontPage = (props) => {
      <div className="col-lg-3">
             <Link to={`/details/${id}`}>
                   <div className="Item">
-        <h3>name:{name}</h3>
+       
         <img src={img} alt="car"></img>
     </div></Link>
      </div>

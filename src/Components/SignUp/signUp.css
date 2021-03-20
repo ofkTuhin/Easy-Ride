@@ -1,0 +1,40 @@
+.form{
+   
+    width: 30% !important;
+  
+    margin: 53px auto 0px;
+    padding: 30px;
+    border-radius: 10px;}
+input{
+    width: 300px;
+    margin-top: 10px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    outline: 0;
+    border: 1px solid wheat;
+}
+.signUp{
+   
+    border: 1px solid rgb(245, 118, 118) !important; 
+    background-color: rgb(245, 118, 118);
+
+}
+.signIn{
+ background-color: rgb(127, 225, 255) !important;
+ border: 1px solid rgb(127, 225, 255) !important;
+}
+.fb-button{
+    background-color: blue;
+    border:1px;
+    width: 300px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}

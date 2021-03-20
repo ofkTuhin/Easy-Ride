@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import { useParams } from 'react-router';
 import map from '../../images/Map.png'
 import fakeData from '../../fakeData/fakeData.json'
+import './details.css'
+import people from '../../images/peopleicon.png'
+
 
 const Details = () => {
     const { id } = useParams()
@@ -45,13 +48,51 @@ const Details = () => {
                 <div className="row">
                     <div className="col-lg-4">
                         <div className="path">
-                            {place.isSearch && <div className="desc">
-                                <h3>name:{carDetails.name}</h3>
-                                <p>{place.source}</p>
-                                <p>{place.destination}</p>
+                            {place.isSearch && <div className="placeDesc  shadow-lg p-3 mb-5 bg-body rounded">
+                                <div className="place">
+                                    <p>{place.source}</p>
+                                    <div className="dot"></div>
+                                    <div className="line"></div>
+                                    <div className="dot"></div>
+                                    <p>{place.destination}</p>
+                                </div>
+                                <div className="car">
+                                    <div className="rideInfo">
+                                        <div className="info"><img src={carDetails.img} alt="car"></img></div>
+                                        <div className="info"><p>{carDetails.name}</p></div>
+                                        <div className="info"  style={{
+                                            display:'flex'
+                                        }}><img src={people} alt="people"></img><p>4</p></div>
+                                        <div className="payment"><p>$64</p></div>
+                                        
+                                        
+                                    </div>
+                                    <div className="rideInfo">
+                                        <div className="info"><img src={carDetails.img} alt="car"></img></div>
+                                        <div className="info"><p>{carDetails.name}</p></div>
+                                        <div className="info"  style={{
+                                            display:'flex'
+                                        }}><img src={people} alt="people"></img><p>4</p></div>
+                                        <div className="payment"><p>$64</p></div>
+                                        
+                                        
+                                    </div>
+                                    <div className="rideInfo">
+                                        <div className="info"><img src={carDetails.img} alt="car"></img></div>
+                                        <div className="info"><p>{carDetails.name}</p></div>
+                                        <div className="info"  style={{
+                                            display:'flex'
+                                        }}><img src={people} alt="people"></img><p>4</p></div>
+                                        <div className="payment"><p>$64</p></div>
+                                        
+                                        
+                                    </div>
+
+                                </div>
+                                
                             </div>}
 
-                            {!place.isSearch && <div>
+                            {!place.isSearch && <div className="placeForm  shadow-lg p-3 mb-5 bg-body rounded">
                                 <form onSubmit={handleSubmit}>
                                     <div class="mb-3">
 
