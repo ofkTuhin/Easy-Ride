@@ -235,11 +235,15 @@ user.updateProfile({
         {/* <input type="checkbox" onChange={()=>setNewUser(!newUser)}></input>
         <label>New user please sign up</label> */}
       </form>
-      <p>Already have account?<span onClick={()=>setNewUser(!newUser)} style={{
+     {  newUser?  <p>Already have account?<span onClick={()=>setNewUser(!newUser)} style={{
+      color:'blue',
+      cursor:'pointer'
+  
+  }}>login</span></p>:<p>create an account?<span onClick={()=>setNewUser(!newUser)} style={{
         color:'blue',
         cursor:'pointer'
     
-    }}>login</span></p>
+    }}> Sign</span></p>}
      {
        userInfo.success ? <p style={{color:'green'}}>{newUser?"create":'login'}  success</p>: <p style={{color:'red'}}>{userInfo.error}</p>
      }
