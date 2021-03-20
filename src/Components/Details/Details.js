@@ -32,9 +32,7 @@ const Details = () => {
         console.log(place)
 
     }
-    const handleSubmit = () => {
-
-    }
+  
     const handleSearch = () => {
         const newPlace = { ...place }
         newPlace.isSearch = true;
@@ -46,7 +44,7 @@ const Details = () => {
 
             <div className="container">
                 <div className="row">
-                    <div className="col-lg-4">
+                    <div className="col-12 col-lg-4 col-md-4 col-sm-12">
                         <div className="path">
                             {place.isSearch && <div className="placeDesc  shadow-lg p-3 mb-5 bg-body rounded">
                                 <div className="place">
@@ -92,19 +90,22 @@ const Details = () => {
                                 
                             </div>}
 
-                            {!place.isSearch && <div className="placeForm  shadow-lg p-3 mb-5 bg-body rounded">
-                                <form onSubmit={handleSubmit}>
-                                    <div class="mb-3">
+                            {!place.isSearch && <div className="placeForm  shadow-lg p-3 mb-5 bg-body rounded ">
+                                <form >
+                                    <div className="form-group">
+                                        <label>Pick From</label>
 
-                                        <input type="text" class="form-control" onBlur={handleBlur} name="source" required></input>
+                                        <input type="text" className="form-control" onBlur={handleBlur} name="source" required></input>
                                     </div>
-                                    <div class="mb-3">
+                                    <div class="form-group">
 
-                                        <input type="text" class="form-control" onBlur={handleBlur} name="destination" required></input>
+                                        <label>pic To</label>
+
+                                        <input type="text" className="form-control" onBlur={handleBlur} name="destination" required></input>
                                     </div>
 
-                                    <div class="mb-3">
-                                        <button type="submit" onClick={handleSearch} >Search</button>
+                                    <div class="form-group">
+                                        <button type="submit" onClick={handleSearch} className="btn btn-primary col-12" >Search</button>
 
                                     </div>
                                 </form>
@@ -112,7 +113,7 @@ const Details = () => {
 
                         </div>
                     </div>
-                    <div className="col-lg-8">
+                    <div className="col-12 col-md-8 col-sm-12 col-lg-8">
                         <div className="map">
                             <img src={map} alt="map"></img>
                         </div>
