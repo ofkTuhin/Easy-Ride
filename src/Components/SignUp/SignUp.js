@@ -25,7 +25,8 @@ const SignUp = () => {
       password: '',
       error: '',
       confirm_password: '',
-      success: false,
+      success: true,
+      isPassValid:false
     }
   )
   const [loggedInUser, setLoginUser] = useContext(UserContext)
@@ -61,6 +62,7 @@ const SignUp = () => {
   // Email and password validation
   const handleBlur = (e) => {
     let isFormvalid = true;
+   
 
     if (e.target.name === 'email') {
 
@@ -84,10 +86,7 @@ const SignUp = () => {
       isFormvalid = regexPasswordValid && passwordLength
 
     }
-    if(userInfo.password!=userInfo.confirm_password)
-    {
-      isFormvalid=false
-    }
+    
     
     if (isFormvalid) {
 
@@ -152,6 +151,16 @@ const SignUp = () => {
 
         
     }
+       const passWord=document.getElementById('pass').value
+    
+    const confirmPassword=document.getElementById('c_pass').value
+    if(passWord!=confirmPassword)
+    {
+      const updateUserInfo = { ...userInfo }
+     
+      updateUserInfo.isPassValid = false;
+      setUserInfo(updateUserInfo)
+    }
     e.preventDefault()
 
 
@@ -193,9 +202,9 @@ const SignUp = () => {
 
               <div className="form-group"><input className="form-control" type="email" name="email" placeholder="Enter your email" onBlur={handleBlur} required></input></div>
               
-              <div className="form-group"><input className="form-control" type="password" name="password" placeholder="Enter your password" onBlur={handleBlur} required></input></div>
+              <div className="form-group"><input className="form-control" type="password" name="password" placeholder="Enter your password" onBlur={handleBlur}id="pass" required></input></div>
 
-             { newUser&&<div className="form-group"><input className="form-control" type="password" name="confirm_password" placeholder="Confirm password" onBlur={handleBlur} required></input></div>}
+             { newUser&&<div className="form-group" id="c_pass"><input className="form-control" type="password" name="confirm_password" placeholder="Confirm password" onBlur={handleBlur} required></input></div>}
 
               <br></br>
               {newUser ? <div className="form-group"><input type="submit" className="signUp form-control " value="Create new account" placeholder="" ></input></div> : <div className="form-group"><input type="submit" className="signIn form-control btn col-12" value="sign in" placeholder=""></input></div>}
@@ -215,9 +224,7 @@ const SignUp = () => {
 
           </div>
 
-          {
-            userInfo.success ? <p style={{ color: 'green' }}>{newUser ? "create" : 'login'}  success</p> : <p style={{ color: 'red' }}>{userInfo.error}</p>
-          }
+         
           <p>or</p>
           <button className="fb-button btn col-12 " onClick={handleSigned} style={{ color: 'white' }}>Login With Google</button>
 
