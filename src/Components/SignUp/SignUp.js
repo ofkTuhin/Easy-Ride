@@ -169,7 +169,9 @@ const SignUp = () => {
           <div className="form shadow-lg p-3 mb-5 bg-body rounded">
 
             {newUser ? <h2>SignUp Here</h2> : <h2>Login Here</h2>}
+            <div className="container">
             <form onSubmit={handleSubmit} >
+
               {newUser && <div className="form-group"><input className="form-control" type="text" name="name" placeholder="Enter your name" onBlur={handleBlur} required></input></div>}
              
 
@@ -181,6 +183,7 @@ const SignUp = () => {
               <br></br>
           
             </form>
+            </div>
             {newUser ? <p>Already have account?<span onClick={() => setNewUser(!newUser)} style={{
               color: 'blue',
               cursor: 'pointer'
