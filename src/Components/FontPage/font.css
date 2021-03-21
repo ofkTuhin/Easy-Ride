@@ -5,4 +5,25 @@ img{
 }
 .Item{
     margin-top: 100px;
+    height: 300px;
+    background-color: #79e0bf99;
+    box-sizing: border-box;
+    padding: 17px;
+    border-radius: 10px;
+    color: white;
+    font-size:30px;
+    transition-duration: 0.4s;
+    
+}
+.Item:hover{
+    color:#79e0bf99;
+    background-color:beige;
+  box-shadow: 5px 1px 3px #f5eded;
+}
+.Item img {
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
 }

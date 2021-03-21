@@ -4,6 +4,7 @@ import map from '../../images/Map.png'
 import fakeData from '../../fakeData/fakeData.json'
 import './details.css'
 import people from '../../images/peopleicon.png'
+import Map from '../Map/Map';
 
 
 const Details = () => {
@@ -115,7 +116,8 @@ const Details = () => {
                     </div>
                     <div className="col-12 col-md-8 col-sm-12 col-lg-8">
                         <div className="map">
-                            <img src={map} alt="map"></img>
+                            {/* <img src={map} alt="map"></img> */}
+                            <Map></Map>
                         </div>
                     </div>
                 </div>

@@ -1,8 +1,17 @@
 .home-bg{
-    background-image: url(../../images/Bg.png);
+    background-color:rgb(23, 165, 99);
     background-size: cover;
     height:550px;
     background-position: no-repeat;
     background-position: center;
     width:100%;
+    position: absolute;
+}
+.home-bg h1{
+    color: white;
+    margin-top: 0px;
+    display: block;
+    position: relative;
+    top: 10%;
+    font-size: 60px;
 }

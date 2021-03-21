@@ -24,6 +24,7 @@ const SignUp = () => {
       photo: '',
       password: '',
       error: '',
+      confirm_password: '',
       success: false,
     }
   )
@@ -75,6 +76,19 @@ const SignUp = () => {
       isFormvalid = regexPasswordValid && passwordLength
 
     }
+    if (e.target.name === 'confirm_password') {
+
+      const passwordLength = e.target.value.length >= 8
+
+      const regexPasswordValid = /[0-9]/.test(e.target.value);
+      isFormvalid = regexPasswordValid && passwordLength
+
+    }
+    if(userInfo.password!=userInfo.confirm_password)
+    {
+      isFormvalid=false
+    }
+    
     if (isFormvalid) {
 
       const updateUserInfo = { ...userInfo }
@@ -135,6 +149,8 @@ const SignUp = () => {
           updateUserInfo.success = false;
           setUserInfo(updateUserInfo)
         });
+
+        
     }
     e.preventDefault()
 
@@ -178,6 +194,9 @@ const SignUp = () => {
               <div className="form-group"><input className="form-control" type="email" name="email" placeholder="Enter your email" onBlur={handleBlur} required></input></div>
               
               <div className="form-group"><input className="form-control" type="password" name="password" placeholder="Enter your password" onBlur={handleBlur} required></input></div>
+
+             { newUser&&<div className="form-group"><input className="form-control" type="password" name="confirm_password" placeholder="Confirm password" onBlur={handleBlur} required></input></div>}
+
               <br></br>
               {newUser ? <div className="form-group"><input type="submit" className="signUp form-control " value="Create new account" placeholder="" ></input></div> : <div className="form-group"><input type="submit" className="signIn form-control btn col-12" value="sign in" placeholder=""></input></div>}
               <br></br>
