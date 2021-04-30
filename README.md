@@ -1,4 +1,5 @@
-Assalamu alaikum 
+
+
 This project name is "Easy Ride"
 in this App I use react router, privateRoute, for routing between two components 
 For user login and and user authentication In this App I use google firebase google authentication and email password authentication.for responsive I use react bootstrap .
