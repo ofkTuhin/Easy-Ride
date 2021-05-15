@@ -1,57 +1,63 @@
-import React, { useContext } from 'react';
+
+
+import React from 'react';
 import firebase from "firebase/app";
 import "firebase/auth";
 import firebaseConfig from './firebase.config'
 import { useState } from 'react';
+import  { useContext } from 'react';
 import { UserContext } from '../../App';
 import { useHistory, useLocation } from 'react-router';
 import './signUp.css'
 
-if (!firebase.apps.length) { firebase.initializeApp(firebaseConfig); }
+if(!firebase.apps.length){firebase.initializeApp(firebaseConfig);}
 
-// firebase.initializeApp(firebaseConfig);
+
 
 
 const SignUp = () => {
 
 
-  const [newUser, setNewUser] = useState(false)
-  const [userInfo, setUserInfo] = useState(
+  
+
+  const [newUser,setNewUser] =useState(false)
+  const [userInfo,setUserInfo] =useState(
     {
       issigndIn: false,
       name: '',
       email: '',
       photo: '',
       password: '',
-      error: '',
-      confirm_password: '',
-      success: true,
-      isPassValid:false
+      error:'',
+      success: false,
     }
   )
-  const [loggedInUser, setLoginUser] = useContext(UserContext)
-  console.log(loggedInUser)
 
-  let history = useHistory();
-  let location = useLocation();
+  const [logedInUser,setLoggedInUser]=useContext(UserContext)
+
+  const history=useHistory()
+  const location=useLocation()
   let { from } = location.state || { from: { pathname: "/" } };
 
   // const provider = new firebase.auth.GoogleAuthProvider();
   const provider = new firebase.auth.GoogleAuthProvider();
-  var fbProvider = new firebase.auth.FacebookAuthProvider();
+  
+ 
 
 
   const handleSigned = () => {
+    
+    
     firebase.auth().signInWithPopup(provider)
-      .then((result) => {
-
-
-        console.log(result)
-
-      }).catch((error) => {
-
-
-      });
+    .then((result) => {
+  
+     
+    
+      
+    }).catch((error) => {
+      
+      
+    });
 
 
 
@@ -61,107 +67,92 @@ const SignUp = () => {
 
   // Email and password validation
   const handleBlur = (e) => {
-    let isFormvalid = true;
-   
-
-    if (e.target.name === 'email') {
+    
+    let isFormvalid =true;
+    
+    if(e.target.name==='email'){
 
       isFormvalid = /\S+@\S+\.\S+/.test(e.target.value)
-
+     
 
     }
-    if (e.target.name === 'password') {
+    if(e.target.name==='password'){
 
-      const passwordLength = e.target.value.length >= 8
+      const passwordLength =e.target.value.length>=8
 
       const regexPasswordValid = /[0-9]/.test(e.target.value);
-      isFormvalid = regexPasswordValid && passwordLength
+      isFormvalid=regexPasswordValid && passwordLength
 
     }
-    if (e.target.name === 'confirm_password') {
-
-      const passwordLength = e.target.value.length >= 8
-
-      const regexPasswordValid = /[0-9]/.test(e.target.value);
-      isFormvalid = regexPasswordValid && passwordLength
-
-    }
-    
-    
-    if (isFormvalid) {
-
-      const updateUserInfo = { ...userInfo }
-      updateUserInfo[e.target.name] = e.target.value
+    if (isFormvalid){
+     
+      const updateUserInfo ={...userInfo}
+      updateUserInfo[e.target.name]=e.target.value
       setUserInfo(updateUserInfo)
-
-
+    
+      
     }
 
   }
   // handle submit event
   const handleSubmit = (e) => {
-    if (newUser && userInfo.email && userInfo.password) {
-      firebase.auth().createUserWithEmailAndPassword(userInfo.email, userInfo.password)
-        .then(res => {
-          // Signed in 
-          const updateUserInfo = { ...userInfo }
-          updateUserInfo.photo = res.photoURL;
-
-
-          updateUserInfo.error = '';
-          updateUserInfo.success = true;
-          setUserInfo(updateUserInfo)
-          userInfoUpdate(userInfo.name, userInfo.photo)
-
-          // ...
-        })
-        .catch((error) => {
-          const updateUserInfo = { ...userInfo }
-
-          updateUserInfo.error = error.message;
-          updateUserInfo.success = false;
-          setUserInfo(updateUserInfo)
-
-
-          // ..
-        });
-      console.log('submit')
-    }
-    if (!newUser && userInfo.email && userInfo.password) {
-      firebase.auth().signInWithEmailAndPassword(userInfo.email, userInfo.password)
-        .then(res => {
-          const updateUserInfo = { ...userInfo }
-          updateUserInfo.error = '';
-          updateUserInfo.success = true;
-          setUserInfo(updateUserInfo)
-          setLoginUser(updateUserInfo)
-          history.replace(from);
-          console.log(res.user)
-          // Signed in
-
-          // ...
-        })
-        .catch((error) => {
-          const updateUserInfo = { ...userInfo }
-          updateUserInfo.error = error.message;
-          console.log(updateUserInfo.error)
-          updateUserInfo.success = false;
-          setUserInfo(updateUserInfo)
-        });
-
-        
-    }
-       const passWord=document.getElementById('pass').value
     
-    const confirmPassword=document.getElementById('c_pass').value
-    if(passWord!=confirmPassword)
-    {
-      const updateUserInfo = { ...userInfo }
+
+    if(newUser && userInfo.email && userInfo.password){
+      firebase.auth().createUserWithEmailAndPassword(userInfo.email, userInfo.password)
+      .then(res => {
+        // Signed in 
+        const updateUserInfo ={...userInfo}
+        updateUserInfo.photo=res.photoURL;
+
+
+
+        updateUserInfo.error = '';
+        updateUserInfo.success =true;
+        setUserInfo(updateUserInfo)
+        
+        userInfoUpdate(userInfo.name,userInfo.photo)
+        
      
-      updateUserInfo.isPassValid = false;
-      setUserInfo(updateUserInfo)
-    }
-    e.preventDefault()
+        // ...
+      })
+      .catch((error) => {
+        const updateUserInfo ={...userInfo}
+
+        updateUserInfo.error = error.message;
+        updateUserInfo.success=false;
+        setUserInfo(updateUserInfo)
+       
+     
+        // ..
+      });
+       console.log('submit')
+     }
+     if (!newUser && userInfo.email && userInfo.password){
+      firebase.auth().signInWithEmailAndPassword(userInfo.email,userInfo.password)
+      .then(res => {
+        const updateUserInfo ={...userInfo}
+        updateUserInfo.error = '';
+        updateUserInfo.success =true;
+        setUserInfo(updateUserInfo)
+        setLoggedInUser(updateUserInfo)
+        history.replace(from);
+        console.log(res.user)
+        // Signed in
+        
+        // ...
+      })
+      .catch((error) => {
+        const updateUserInfo ={...userInfo}
+        updateUserInfo.error = error.message;
+        console.log(updateUserInfo.error)
+        updateUserInfo.success=false;
+        setUserInfo(updateUserInfo)
+      });
+     }
+     e.preventDefault()
+
+
 
 
   }
@@ -224,7 +215,10 @@ const SignUp = () => {
 
           </div>
 
-         
+          {
+            userInfo.success ? <p style={{ color: 'green' }}>{newUser ? "create" : 'login'}  success</p> : <p style={{ color: 'red' }}>{userInfo.error}</p>
+          }
+          
           <p>or</p>
           <button className="fb-button btn col-12 " onClick={handleSigned} style={{ color: 'white' }}>Login With Google</button>
 
